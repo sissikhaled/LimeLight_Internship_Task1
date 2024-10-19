@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+}
+.wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.card {
+  width: 300px;
+  height: 400px;
+  margin: 1em;
+  perspective: 1500px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.card .content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+}
+.card .more:checked ~ .content {
+  transform: rotateY(180deg);
+}
+.card .front, .card .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.card .front {
+  background-size: cover;
+  background-position: center center;
+  transition: background-color 0.3s ease-in;
+}
+.card .front .inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+.card .front h2 {
+  margin: 0;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.card .front .rating {
+  margin-top: 10px;
+  color: gold;
+  font-size: 16px;
+}
+.card .front .button {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #2ecc71;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.card .front .button:hover {
+  background-color: #25a25a;
+}
+.card .back {
+  transform: rotateY(180deg);
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #333;
+  border: 1px solid #e1f0fa;
+}
+.card .back .inner {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  justify-items: center;
+  align-items: center;
+}
+.card .back .info {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+.card .back .info span {
+  display: block;
+  font-size: 24px;
+  color: #3498db;
+}
+.card .back .description {
+  grid-column: span 2;
+  font-size: 14px;
+  padding: 10px;
+  background-color: #e1f0fa;
+  border-radius: 5px;
+  font-weight: 500;
+}
+.card .back .location, .card .back .price {
+  font-weight: 600;
+  font-size: 16px;
+  color: #2ecc71;
+}
+.card .back .button {
+  grid-column: span 2;
+  padding: 10px;
+  background-color: #3498db;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.card .back .button:hover {
+  background-color: #217dbb;
+}
